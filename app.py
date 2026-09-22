@@ -1,0 +1,27 @@
+from flask import Flask, render_template, request, redirect
+from usuario import Usuario
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def registro():
+    return render_template("crear_nuevo_usuario.html")
+
+@app.route('/guardar')
+def guardar():
+    datos = {
+        "nombre": request.form['nombre'],
+        "apellido": request.form['apellido'],
+        "gmail": request.form['gmail'],
+        "created_at": request.form['created_at']
+    }
+    Usuario.save(datos)
+    return redirect("/mostrar_usuario")
+
+
+@app.route("/mostrar_usuario")
+def mostrar_usuario():
+    return render_template("mostrar_usuario.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
