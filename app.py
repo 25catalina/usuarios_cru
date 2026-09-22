@@ -13,8 +13,8 @@ def guardar():
         "nombre": request.form['nombre'],
         "apellido": request.form['apellido'],
         "gmail": request.form['gmail'],
-        "created_at": request.form['created_at']
-    }
+        "created_at": request.form['created_at']}
+    
     Usuario.save(datos)
     return redirect("/mostrar_usuario")
 
