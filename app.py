@@ -7,7 +7,7 @@ app = Flask(__name__)
 def registro():
     return render_template("crear_nuevo_usuario.html")
 
-@app.route('/guardar')
+@app.route('/guardar', methods=["POST"])
 def guardar():
     datos = {
         "nombre": request.form['nombre'],
@@ -21,7 +21,9 @@ def guardar():
 
 @app.route("/mostrar_usuario")
 def mostrar_usuario():
-    return render_template("mostrar_usuario.html")
+    usuarios = Usuario.obtener_todos()
+    return render_template("mostrar_usuario.html", usuarios=usuarios)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
