@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if usuario %}
+    <h1>Información del Usuario</h1>
+    <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+    <p><strong>Apellido:</strong> {{ usuario.apellido }}</p>
+    <p><strong>Email:</strong> {{ usuario.gmail }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ usuario.created_at }}</p>
+    {% else %}
+    <p>No se encontró información del usuario.</p>
+    {% endif %}
+
+    <a href="/editar/{{ usuario.id }}">Editar</a>
+    <a href="/borrar/{{ usuario.id }}">Borrar</a>
+  </body>
+</html>
