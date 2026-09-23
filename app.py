@@ -24,13 +24,5 @@ def mostrar_usuario():
     usuarios = Usuario.obtener_todos()
     return render_template("mostrar_usuario.html", usuarios=usuarios)
 
-@app.route("/actualizar")
-def actualizar_usuario():
-    pass
-
-@app.route("/eliminar", methods=["POST"])
-def eliminar_usuario():
-    pass
-
 if __name__ == "__main__":
     app.run(debug=True)
