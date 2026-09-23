@@ -7,22 +7,29 @@
 </head>
 <body>
     <h1>mostrar Usuario</h1>
-    <table border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-            <th>Fecha de Creación</th>
-        </tr>
-        <tr>
-            {{ if datos }}
-            <td>{{ datos.nombre }}</td>
-            <td>{{ datos.apellido }}</td>
-            <td>{{ datos.email }}</td>
-            <td>{{ datos.created_at }}</td>
-            {{endfor}}
-        </tr>
-    </table>
+   <table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>E-mail</th>
+        <th>Fecha Creación</th>
+        <th>Acciones</th>
+    </tr>
+    {% for usuario in usuarios %}
+    <tr>
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.apellido }}</td>
+        <td>{{ usuario.gmail }}</td>
+        <td>{{ usuario.created_at }}</td>
+        <td>
+            <a href="/actualizar/{{ usuario.id }}">Actualizar</a>
+            <a href="/eliminar/{{ usuario.id }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
 </body>
 </html>
 

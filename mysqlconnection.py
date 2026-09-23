@@ -1,6 +1,6 @@
 import pymysql.cursors #Utilizamos un cursos para interactuar con BD
 class MySQLConnection: #Clase que permite generar instancia de conexión con BD
-   def __init__(self, db): #db es el nombre de la base de datos
+   def __init__(self, db):
        connection = pymysql.connect(host = 'localhost',
                                    user = 'root', # Cambia el usuario y contraseña
                                    password = 'root',
@@ -8,9 +8,9 @@ class MySQLConnection: #Clase que permite generar instancia de conexión con BD
                                    charset = 'utf8mb4',
                                    cursorclass = pymysql.cursors.DictCursor,
                                    autocommit = True)
-       self.connection = connection #Establecemos conexión con BD,  self.algo es un atributo
+       self.connection = connection #Establecemos conexión con BD
    #El método que se encarga de la consulta   
-   def query_db(self, query, data=None): #valor por defecto
+   def query_db(self, query, data=None):
        with self.connection.cursor() as cursor:
            try:
                query = cursor.mogrify(query, data)
