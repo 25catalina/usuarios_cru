@@ -18,7 +18,13 @@ class Usuario: #moldeo plantilla
         for usuario in resultados:
             usuarios.append( cls(usuario) )
         return usuarios  #si no es un objeto, es una lista de objetos, por eso se usa cls para crear una instancia de la clase Usuario con los datos obtenidos de la base de datos
-
+    
+    @classmethod
+    def obtener_uno(cls, datos):
+        query = "SELECT * FROM usuarios WHERE id = %(id)s;"     
+        resultados = connectToMySQL("usuarios_crum").query_db(query, datos)       
+        return cls(resultados[0])
+     
  #metodo para guardar un usuario en la base de datos
     @classmethod
     def guardar (cls, datos): #SENTENCIAS preparadas para evitar inyecciones SQL, datos es un diccionario 
@@ -31,3 +37,5 @@ class Usuario: #moldeo plantilla
         query = "UPDATE usuarios SET nombre = %(nombre)s, apellido = %(apellido)s, gmail = %(gmail)s, updated_at = NOW() WHERE id = %(id)s;"
         resultado = connectToMySQL("usuarios_crum").query_db(query, datos)
         return resultado
+
+       

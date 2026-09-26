@@ -24,5 +24,13 @@ def mostrar_usuario():
     usuarios = Usuario.obtener_todos()
     return render_template("mostrar_usuario.html", usuarios=usuarios)
 
+@app.route("/ver_usuario/<int:id>")
+def ver_usuario(id):
+    datos = {
+        "id": id
+    }
+    usuario = Usuario.obtener_uno(datos)
+    return render_template("ver_usuario.html", usuario=usuario)
+
 if __name__ == "__main__":
     app.run(debug=True)
