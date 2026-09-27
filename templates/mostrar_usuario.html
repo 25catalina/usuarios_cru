@@ -7,6 +7,8 @@
   </head>
   <body>
     <h1>mostrar Usuario</h1>
+    <a href="/crear_nuevo_usuario">Crear Nuevo Usuario</a>
+    
     <table border="1">
       <tr>
         <th>Id</th>
@@ -24,7 +26,9 @@
         <td>{{ usuario.gmail }}</td>
         <td>{{ usuario.created_at }}</td>
         <td>
-          <a href="/informacion/{{ usuario.id }}">Ver información</a>
+          <a href="/ver_usuario/{{ usuario.id }}">Ver información</a>
+          <a href="/editar/{{ usuario.id }}">Editar</a>
+          <a href="/borrar/{{ usuario.id }}">Borrar</a>
         </td>
       </tr>
       {% endfor %}

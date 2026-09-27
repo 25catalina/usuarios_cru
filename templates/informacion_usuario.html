@@ -8,15 +8,14 @@
   <body>
     {% if usuario %}
     <h1>Información del Usuario</h1>
-    <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
-    <p><strong>Apellido:</strong> {{ usuario.apellido }}</p>
+    <p><strong>Nombre completo:</strong> {{ usuario.nombre }} {{ usuario.apellido }}</p>
     <p><strong>Email:</strong> {{ usuario.gmail }}</p>
     <p><strong>Fecha de Creación:</strong> {{ usuario.created_at }}</p>
-    {% else %}
-    <p>No se encontró información del usuario.</p>
-    {% endif %}
+    <p><strong>Fecha de Actualización:</strong> {{ usuario.updated_at }}</p>
+    
 
     <a href="/editar/{{ usuario.id }}">Editar</a>
     <a href="/borrar/{{ usuario.id }}">Borrar</a>
+    {% endif %}
   </body>
 </html>

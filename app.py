@@ -32,5 +32,30 @@ def ver_usuario(id):
     usuario = Usuario.obtener_uno(datos)
     return render_template("ver_usuario.html", usuario=usuario)
 
+@app.route("/borrar/<int:id>")
+def borrar_usuario(id):
+    datos = {
+        "id": id
+        }
+    Usuario.eliminar(datos)
+    return redirect("/mostrar_usuario")
+
+@app.route("/editar/<int:id>")
+def editar_usuario(id):
+    datos = { "id": id }
+    usuario = Usuario.obtener_uno(datos)
+    return render_template("editar_usuario.html", usuario=usuario)
+
+@app.route("/actualizar/<int:id>", methods=["POST"])
+def actualizar_usuario(id):
+    datos = {
+        "nombre": request.form['nombre'],
+        "apellido": request.form['apellido'],
+        "gmail": request.form['gmail'],
+        "id": id
+    }
+    Usuario.actualizar(datos)
+    return redirect("/mostrar_usuario")
+
 if __name__ == "__main__":
     app.run(debug=True)

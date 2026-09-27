@@ -7,15 +7,15 @@
 </head>
 <body>
     <h1>Editar Usuario</h1>
-  <form action="/actualizar" method="POST"> 
+    <form action="/actualizar/{{ usuario.id }}" method="POST">  
       <label>Nombre:</label>
-      <input type="text" name="nombre" /><br />
+      <input type="text" name="nombre" value="{{ usuario.nombre }}" /><br />
 
       <label>apellido:</label>
-      <input type="text" name="apellido" /><br />
+      <input type="text" name="apellido" value="{{ usuario.apellido }}" /><br />
 
       <label>email:</label>
-      <input type="text" name="gmail" /><br />
+      <input type="text" name="gmail" value="{{ usuario.gmail }}" /><br />
 
       <input type="submit" value="actualizar" />
     </form>

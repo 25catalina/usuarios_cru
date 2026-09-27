@@ -38,4 +38,10 @@ class Usuario: #moldeo plantilla
         resultado = connectToMySQL("usuarios_crum").query_db(query, datos)
         return resultado
 
+    @classmethod
+    def eliminar(cls, datos):
+        query = "DELETE FROM usuarios WHERE id = %(id)s;"
+        resultado = connectToMySQL("usuarios_crum").query_db(query, datos)
+        return resultado
+
        
