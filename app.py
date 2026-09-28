@@ -30,7 +30,7 @@ def ver_usuario(id):
         "id": id
     }
     usuario = Usuario.obtener_uno(datos)
-    return render_template("ver_usuario.html", usuario=usuario)
+    return render_template("informacion_usuario.html", usuario=usuario)
 
 @app.route("/borrar/<int:id>")
 def borrar_usuario(id):
