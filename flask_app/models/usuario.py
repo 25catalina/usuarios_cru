@@ -1,4 +1,5 @@
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
+
 
 class Usuario: #moldeo plantilla
     def __init__(self, datos): #todo proyectos tienes clases
